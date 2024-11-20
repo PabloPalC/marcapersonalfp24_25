@@ -37,7 +37,11 @@ Route::get('perfil/{id?}', function($id = null) {
 })->where('id', '[0-9]*');
 
 Route::get('/', [HomeController::class, 'getHome']);
+
 Route::get('proyectos', [ProyectosController::class, 'getIndex']);
+
 Route::get('proyectos/show/{id}', [ProyectosController::class, 'getShow']);
+
 Route::get('proyectos/create', [ProyectosController::class, 'getCreate']);
+
 Route::get('proyectos/edit/{id}', [ProyectosController::class, 'getEdit']);
