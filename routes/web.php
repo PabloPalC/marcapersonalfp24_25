@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\MyMiddleware;
 
 
 Route::get('/', [HomeController::class, 'getHome']);
@@ -17,8 +18,6 @@ Route::get('logout', function() {
 Route::get('perfil/{id?}', function($id = null) {
     return $id ? 'Visualizar el currículo de '. $id : 'Visualizar el currículo propio';
 })->where('id', '[0-9]*');
-
-
 
 
 
