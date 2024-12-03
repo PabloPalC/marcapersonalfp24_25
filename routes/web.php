@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Models\Estudiante;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,7 +20,12 @@ Route::get('perfil/{id?}', function($id = null) {
 })->where('id', '[0-9]*');
 
 
-
+Route::get('pruebaDB/{id}', function($id = null) {
+    $estudiante = Estudiante::where('ciclo' ,'like' ,'C_1%')->get();
+    foreach($estudiante as $est){
+            echo $est->nombre;
+    }
+});
 
 
 include __DIR__.'/actividades.php';
