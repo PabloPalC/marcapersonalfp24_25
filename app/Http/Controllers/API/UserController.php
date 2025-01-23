@@ -9,9 +9,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $modelclass = User::class;
+
     public function index(Request $request)
     {
         return UserResource::collection(

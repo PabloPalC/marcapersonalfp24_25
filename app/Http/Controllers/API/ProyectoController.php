@@ -10,9 +10,8 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class ProyectoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $modelclass = Proyecto::class;
+
     public function index(Request $request)
     {
         /** Hay 10 proyectos, con lo que en verdad el paginate podriamos quitarlo

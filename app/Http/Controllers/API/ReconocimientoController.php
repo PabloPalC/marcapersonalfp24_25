@@ -9,9 +9,8 @@ use Illuminate\Http\Request;
 
 class ReconocimientoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $modelclass = Reconocimiento::class;
+
     public function index(Request $request)
     {
         return ReconocimientoResource::collection(

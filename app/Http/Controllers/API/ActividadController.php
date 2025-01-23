@@ -10,9 +10,8 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 class ActividadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $modelclass = Actividad::class;
+
     public function index(Request $request)
     {
         return ActividadResource::collection(
