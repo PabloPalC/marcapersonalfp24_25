@@ -65,4 +65,11 @@ class UserController extends Controller
                 'message' => 'Error: ' . $e->getMessage()], 400);
         }
     }
+
+    public function count()
+    {
+        $countUsuarios = User::count();
+        return response()->json(['count' => $countUsuarios]);
+    }
+
 }

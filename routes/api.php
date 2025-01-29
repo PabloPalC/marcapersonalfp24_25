@@ -31,6 +31,7 @@ Route::prefix('v1')->group(function () {
         'familias_profesionales' => 'familiaProfesional'
     ]);
     Route::apiResource('curriculos', CurriculoController::class);
+    Route::get('users/count', [UserController::class, 'count']); //Se pone primero porque sino laravel intenta manejarlo como un id.
     Route::apiResource('users', UserController::class);
     Route::apiResource('proyectos', ProyectoController::class);
     Route::apiResource('reconocimientos', ReconocimientoController::class);
