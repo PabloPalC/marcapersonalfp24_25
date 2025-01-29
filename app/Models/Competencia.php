@@ -15,4 +15,9 @@ class Competencia extends Model
         'color'
 
     ];
+    
+    public static $filterColumns = [
+        'nombre',
+        'color'
+    ];
 }

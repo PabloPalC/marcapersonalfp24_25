@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\CompetenciaActividad;
 use Illuminate\Database\Seeder;
 
-class CompetenciasTableSeeder extends Seeder
+class CompetenciasActividadesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

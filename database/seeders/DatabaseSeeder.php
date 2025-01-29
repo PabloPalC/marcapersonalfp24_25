@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->command->info('Tabla competencias inicializada con datos!');
         $this->call(CompetenciasTableSeeder::class);
+        $this->command->info('Tabla competencias-actividades inicializada con datos!');
+        $this->call(CompetenciasActividadesTableSeeder::class);
         Model::reguard();
         Schema::enableForeignKeyConstraints();
 
