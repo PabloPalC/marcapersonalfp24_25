@@ -48,6 +48,7 @@ Route::prefix('v1')->group(function () {
     Route::get('ciclos/{cicloId}/proyectos', [ProyectosCiclosController::class, 'indexCiclosProyectos']);
     Route::post('proyectos/{proyectoId}/ciclos', [ProyectosCiclosController::class, 'storeProyectoCiclo']);
     Route::apiResource('empresas', EmpresaController::class);
+    Route::get('{tabla}/count', function ($tabla) { return response()->json([ 'count' => DB::table($tabla)->count() ]); });
 });
 
 Route::any('/{any}', function (ServerRequestInterface $request) {

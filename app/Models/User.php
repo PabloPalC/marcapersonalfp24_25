@@ -47,4 +47,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /* public function curriculo()
+    {
+        return $this->hasOne(Curriculo::class); Tambien es posible hacerlo de esta manera ya que laravel asume que la clave foranea es user_id
+                                                porque se lo indicamos en la relacion de la tabla curriculos.
+    }
+    */
+
+    public function curriculo()
+    {
+        return $this->hasOne(Curriculo::class, 'user_id', 'id');
+    }
+
+    public static $filterColumns = ['name', 'nombre', 'apellidos', 'email'];
 }
