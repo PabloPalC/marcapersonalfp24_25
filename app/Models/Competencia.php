@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Competencia extends Model
 {
@@ -19,5 +20,4 @@ class Competencia extends Model
     ];
 
     public static $filterColumns = ['id', 'nombre', 'color'];
-
 }

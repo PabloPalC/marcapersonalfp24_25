@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Competencia;
 use App\Models\Proyecto;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -45,7 +46,7 @@ class DatabaseSeeder extends Seeder
         $this->call([EmpresasTableSeeder::class]);
         $this->call (ParticipantesProyectosTableSeeder::class);
         $this->command->info('Tabla ParticipantesProyectos inicializada con datos!');
-
+        $this->call(CompetenciasActividadesTableSeeder::class);
         Model::reguard();
         Schema::enableForeignKeyConstraints();
 
