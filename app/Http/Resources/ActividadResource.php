@@ -15,7 +15,6 @@ class ActividadResource extends JsonResource
     public function toArray(Request $request): array
     {
         return array_merge(parent::toArray($request), [
-            'competencia' => $this->competencia,
-        ]); 
+            'competencias' => $this->competencias, ]);
     }
 }

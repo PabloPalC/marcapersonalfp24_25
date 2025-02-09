@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Tabla actividades inicializada con datos!');
         $this->call(CompetenciasTableSeeder::class);
         $this->command->info('Tabla competencias inicializada con datos!');
+        $this->call(CompetenciasActividadesTableSeeder::class);
+        $this->command->info('Tabla competencias-actividades inicializada con datos!');
+        //Lo pongo despues para tener los registros de las dos otras tablas.
         $this->call(CurriculosTableSeeder::class);
         $this->command->info('Tabla curriculos inicializada con datos!');
         $this->call(FamiliasProfesionalesTableSeeder::class);
@@ -46,7 +49,6 @@ class DatabaseSeeder extends Seeder
         $this->call([EmpresasTableSeeder::class]);
         $this->call (ParticipantesProyectosTableSeeder::class);
         $this->command->info('Tabla ParticipantesProyectos inicializada con datos!');
-        $this->call(CompetenciasActividadesTableSeeder::class);
         Model::reguard();
         Schema::enableForeignKeyConstraints();
 

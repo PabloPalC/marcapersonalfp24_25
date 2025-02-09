@@ -19,4 +19,9 @@ class Actividad extends Model
     ];
 
     public static $filterColumns = ['docente_id', 'insignia'];
+
+    public function competencias() : BelongsToMany
+    {
+        return $this->belongsToMany(Competencia::class, 'competencias_actividades', 'actividad_id', 'competencia_id');
+    }
 }

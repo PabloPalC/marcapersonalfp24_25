@@ -1,7 +1,26 @@
 <?php
 
-use App\Models\User;
+namespace Database\Seeders;
 
-$user = User::find(1);
+use App\Models\Actividad;
+use App\Models\Competencia;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Seeder;
 
-$user->competencias()->attach($competencia_id);
+class CompetenciasActividadesTableSeeder extends Seeder {
+
+    public function run(): void {
+        // Borramos por si hubiese algun dato.
+        DB::table('competencias_actividades')->truncate();
+
+        $competencias = Competencia::all();
+        $actividades = Actividad::all();
+
+        foreach ($competencias as $competencia) {
+
+            $actividadesAsociadas = $actividades->random(rand(0, 2));
+
+            $competencia->actividades()->attach($actividadesAsociadas);
+        }
+    }
+}
