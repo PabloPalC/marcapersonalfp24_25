@@ -4,25 +4,23 @@ namespace App\Policies;
 
 use App\Models\Curriculo;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
-
 class CurriculoPolicy
 {
 
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(?User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Curriculo $curriculo): bool
+    public function view(?User $user, Curriculo $curriculo): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,7 +28,7 @@ class CurriculoPolicy
      */
     public function create(User $user): bool
     {
-        return str_ends_with($user->email, env('STUDENT_DOMAIN', '@alu.murciaeduca.es'));
+        return $user->esEstudiante();
     }
 
     /**
@@ -38,7 +36,7 @@ class CurriculoPolicy
      */
     public function update(User $user, Curriculo $curriculo): bool
     {
-        return $user->id === $curriculo->user_id;
+        return $user->esPropietario($curriculo);
     }
 
     /**
@@ -46,7 +44,7 @@ class CurriculoPolicy
      */
     public function delete(User $user, Curriculo $curriculo): bool
     {
-        return false;
+        return $user->esPropietario($curriculo);
     }
 
     /**
