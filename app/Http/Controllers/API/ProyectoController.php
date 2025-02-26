@@ -6,14 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ProyectoResource;
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class ProyectoController extends Controller
+class ProyectoController extends Controller implements HasMiddleware
 {
     public $modelclass = Proyecto::class;
     /**
      * Display a listing of the resource.
      */
+
+     public static function middleware(): array
+     {
+         return [
+             new Middleware('auth:sanctum', except: ['index', 'show']),
+         ];
+     }
 
     public function index(Request $request)
     {
